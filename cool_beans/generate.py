@@ -4,6 +4,8 @@ from os.path import exists
 
 # parameters
 max_width = 4000 # px
+slideshow_auto = False
+slideshow_rate = 5 #s
 
 # urls
 logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/cool_beans_logo.jpg?raw=true'
@@ -106,45 +108,59 @@ for d in subset:
 	html_buffer += f'<div class="w3-padding w3-display-bottomleft w3-text-white"><h3>{d.title}</h3></div>\n'
 	html_buffer += '</div>\n'
 
-# arrow buttons
-html_buffer += '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">\n'
-html_buffer += '<div class="w3-left w3-hover-text-black" onclick="plusDivs(-1)">&#10094;</div>\n'
-html_buffer += '<div class="w3-right w3-hover-text-black" onclick="plusDivs(1)">&#10095;</div>\n'
-html_buffer += '</div>\n'
-
-html_buffer += '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">\n'
-for i,d in enumerate(subset):
-	html_buffer += f'<span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv({i+1})"></span>\n'
+if not slideshow_auto:
+	# arrow buttons
+	html_buffer += '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">\n'
+	html_buffer += '<div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>\n'
+	html_buffer += '<div class="w3-right" onclick="plusDivs(1)">&#10095;</div>\n'
+	html_buffer += '</div>\n'
 
 html_buffer += '</div>\n'
-html_buffer += '</div>\n'
 
-# slideshow scripting
-html_buffer += '<script>\n'
-html_buffer += 'var slideIndex = 1;\n'
-html_buffer += 'showDivs(slideIndex);\n'
-html_buffer += 'function plusDivs(n) {\n'
-html_buffer += '  showDivs(slideIndex += n);\n'
-html_buffer += '}\n'
-html_buffer += 'function currentDiv(n) {\n'
-html_buffer += '  showDivs(slideIndex = n);\n'
-html_buffer += '}\n'
-html_buffer += 'function showDivs(n) {\n'
-html_buffer += '  var i;\n'
-html_buffer += '  var x = document.getElementsByClassName("mySlides");\n'
-html_buffer += '  var dots = document.getElementsByClassName("demo");\n'
-html_buffer += '  if (n > x.length) {slideIndex = 1}\n'
-html_buffer += '  if (n < 1) {slideIndex = x.length}\n'
-html_buffer += '  for (i = 0; i < x.length; i++) {\n'
-html_buffer += '    x[i].style.display = "none";  \n'
-html_buffer += '  }\n'
-html_buffer += '  for (i = 0; i < dots.length; i++) {\n'
-html_buffer += '    dots[i].className = dots[i].className.replace(" w3-white", "");\n'
-html_buffer += '  }\n'
-html_buffer += '  x[slideIndex-1].style.display = "block";  \n'
-html_buffer += '  dots[slideIndex-1].className += " w3-white";\n'
-html_buffer += '}\n'
-html_buffer += '</script>\n'
+if not slideshow_auto:
+	# slideshow scripting (manual)
+	html_buffer += '<script>\n'
+	html_buffer += 'var slideIndex = 1;\n'
+	html_buffer += 'showDivs(slideIndex);\n'
+	html_buffer += 'function plusDivs(n) {\n'
+	html_buffer += '  showDivs(slideIndex += n);\n'
+	html_buffer += '}\n'
+	html_buffer += 'function currentDiv(n) {\n'
+	html_buffer += '  showDivs(slideIndex = n);\n'
+	html_buffer += '}\n'
+	html_buffer += 'function showDivs(n) {\n'
+	html_buffer += '  var i;\n'
+	html_buffer += '  var x = document.getElementsByClassName("mySlides");\n'
+	html_buffer += '  var dots = document.getElementsByClassName("demo");\n'
+	html_buffer += '  if (n > x.length) {slideIndex = 1}\n'
+	html_buffer += '  if (n < 1) {slideIndex = x.length}\n'
+	html_buffer += '  for (i = 0; i < x.length; i++) {\n'
+	html_buffer += '    x[i].style.display = "none";  \n'
+	html_buffer += '  }\n'
+	html_buffer += '  for (i = 0; i < dots.length; i++) {\n'
+	html_buffer += '    dots[i].className = dots[i].className.replace(" w3-white", "");\n'
+	html_buffer += '  }\n'
+	html_buffer += '  x[slideIndex-1].style.display = "block";  \n'
+	html_buffer += '  dots[slideIndex-1].className += " w3-white";\n'
+	html_buffer += '}\n'
+	html_buffer += '</script>\n'
+else:
+	# slideshow scripting (auto)
+	html_buffer += '<script>\n'
+	html_buffer += 'var myIndex = 0;\n'
+	html_buffer += 'carousel();\n'
+	html_buffer += 'function carousel() {\n'
+	html_buffer += '  var i;\n'
+	html_buffer += '  var x = document.getElementsByClassName("mySlides");\n'
+	html_buffer += '  for (i = 0; i < x.length; i++) {\n'
+	html_buffer += '    x[i].style.display = "none";  \n'
+	html_buffer += '  }\n'
+	html_buffer += '  myIndex++;\n'
+	html_buffer += '  if (myIndex > x.length) {myIndex = 1}    \n'
+	html_buffer += '  x[myIndex-1].style.display = "block";  \n'
+	html_buffer += f'  setTimeout(carousel, {slideshow_rate}000);\n'
+	html_buffer += '}\n'
+	html_buffer += '</script>\n'
 
 # text content
 html_buffer += '<div class="w3-content" style="max-width:800px">\n'
@@ -166,11 +182,11 @@ html_buffer += '</div>\n'
 html_buffer += '<div class="w3-content" style="max-width:600px">\n'
 html_buffer += '<div class="w3-cell-row">\n'
 html_buffer += '<div class="w3-container w3-cell w3-center">\n'
-html_buffer += '<img src="https://github.com/mwinokan/RichardSites/blob/main/assets/Richard_Claus_1.jpg?raw=true" alt="Richard_Claus_1" style="max-width:200px" class="w3-padding">\n'
+html_buffer += '<img src="https://github.com/mwinokan/RichardSites/blob/main/assets/Richard_Claus_1.jpg?raw=true" alt="Richard_Claus_1" style="width:100%;max-width:200px" class="w3-padding">\n'
 html_buffer += '<h4 style="color:black">Richard Claus</h4>\n'
 html_buffer += '</div>\n'
 html_buffer += '<div class="w3-container w3-cell w3-center">\n'
-html_buffer += '<img src="https://github.com/mwinokan/RichardSites/blob/main/assets/Chantal_Nissen.jpg?raw=true" alt="Chantal_Nissen" style="max-width:200px" class="w3-padding">\n'
+html_buffer += '<img src="https://github.com/mwinokan/RichardSites/blob/main/assets/Chantal_Nissen.jpg?raw=true" alt="Chantal_Nissen" style="width:100%;max-width:200px" class="w3-padding">\n'
 html_buffer += '<h4 style="color:black">Chantal Nissen</h4>\n'
 html_buffer += '</div>\n'
 html_buffer += '</div>\n'
@@ -178,9 +194,12 @@ html_buffer += '</div>\n'
 
 # next section heading
 # html_buffer += f'<div class="w3-content w3-topbar w3-center" style="max-width:{max_width}px">\n'
+html_buffer += '<br>\n'
+html_buffer += '<br>\n'
 html_buffer += f'<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:{max_width}px;background-color:blue">\n'
 html_buffer += '<h2>Projects</h2>\n'
 html_buffer += '</div>\n'
+html_buffer += '<br>\n'
 
 # poster grid
 html_buffer += f'<div class="w3-content w3-padding-large" style="max-width:{max_width}px">\n'
@@ -201,7 +220,7 @@ for i in range(start, end, step):
 
 	for d in chunk:
 		# html_buffer += f'<div class="w3-display-container w3-third w3-mobile w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
-		html_buffer += f'<div class="w3-col l4 m4 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
+		html_buffer += f'<div class="w3-col l4 m12 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
 		
 		# movie poster
 		html_buffer += f'<a href="{d.target_url}"><img class="w3-card-4 w3-hover-opacity" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
