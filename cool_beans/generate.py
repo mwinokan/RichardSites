@@ -6,9 +6,14 @@ from os.path import exists
 max_width = 4000 # px
 slideshow_auto = False
 slideshow_rate = 5 #s
+address = "Haarlemmerweg 315D<br>1051 LG, Amsterdam<br>Nederland"
+accent_color1 = "blue"
+accent_color2 = "lime"
+accent_color3 = "red"
+contact = "+31 (0) 650281410"
 
 # urls
-logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/cool_beans_logo.jpg?raw=true'
+logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/cool_beans_logo.png?raw=true'
 
 # detail
 title = 'Cool Beans BV'
@@ -52,6 +57,14 @@ movies.append(Movie('sugar', 'Price of Sugar', 2013, 'https://www.youtube.com/wa
 
 movies.append(Movie('butterflies', 'Black Butterflies', 2011, 'https://www.youtube.com/watch?v=Fr-Op9-HZhA', "In Apartheid-torn South Africa, poet Ingrid Jonker (Carice van Houten) struggles tragically in search of love and a sense of home."))
 
+movies.append(Movie('thief', 'The Thief Lord', 2006, 'https://youtu.be/KFQvMHUU3ko', "After their mother dies, two boys flee their mean aunt and head for Venice, Italy, where they meet Scipio, the mysterious \"Thief Lord.\" Along with a small gang of abandoned kids, the boys start robbing the rich to support themselves."))
+
+movies.append(Movie('heineken', 'De Heineken Ontvoering', 2015, 'https://youtu.be/LttABogMVPw', "The inside story of the planning, execution, rousing aftermath, and ultimate downfall of the kidnappers of beer tycoon Alfred \"Freddy\" Heineken in 1983, which resulted in the largest ransom ever paid for an individual."))
+
+movies.append(Movie('vampire2000', 'The Little Vampire', 2000, 'https://youtu.be/HRHWVeVFVf8', "A lonely American boy living in Scotland makes a new best friend, a fellow nine year-old who happens to be a vampire."))
+
+movies.append(Movie('witness', 'Mute Witness', 1995, 'https://youtu.be/Ss5Hw3uiArs', "A mute make-up artist working on a slasher movie being shot in Moscow, is locked in the studio after hours. While there, she witnesses a brutal murder, and must escape capture."))
+
 movies = sorted(movies,key=lambda x: x.year, reverse=True)
 print(f'#movies = {len(movies)}')
 
@@ -83,7 +96,6 @@ html_buffer += f'<div class="w3-content" style="max-width:{max_width}px">\n'
 # top bar (one dynamic and one static)
 html_buffer += '<header>\n'
 html_buffer += '<div class="w3-top">\n'
-html_buffer += '<!-- <div class="w3-bar w3-center w3-padding" style="background-color:blue"> -->\n'
 html_buffer += '<div class="w3-bar w3-center w3-padding-large" style="background-color:white">\n'
 html_buffer += f'<img src="{logo_url}" alt="{title} Logo" style="width:40%;max-width:200px">\n'
 html_buffer += '</div>\n'
@@ -120,7 +132,12 @@ html_buffer += '</div>\n'
 if not slideshow_auto:
 	# slideshow scripting (manual)
 	html_buffer += '<script>\n'
-	html_buffer += 'var slideIndex = 1;\n'
+
+	html_buffer += 'function getRandomInt(max) {\n'
+	html_buffer += '  return Math.floor(Math.random() * max);\n'
+	html_buffer += '}\n'
+	# html_buffer += 'var slideIndex = 1;\n'
+	html_buffer += f'var slideIndex = getRandomInt({len(subset)});\n'
 	html_buffer += 'showDivs(slideIndex);\n'
 	html_buffer += 'function plusDivs(n) {\n'
 	html_buffer += '  showDivs(slideIndex += n);\n'
@@ -184,10 +201,13 @@ html_buffer += '<div class="w3-cell-row">\n'
 html_buffer += '<div class="w3-container w3-cell w3-center">\n'
 html_buffer += '<img src="https://github.com/mwinokan/RichardSites/blob/main/assets/Richard_Claus_1.jpg?raw=true" alt="Richard_Claus_1" style="width:100%;max-width:200px" class="w3-padding">\n'
 html_buffer += '<h4 style="color:black">Richard Claus</h4>\n'
+# html_buffer += '<p>+31 (0) 650281410\n'
+html_buffer += '<p>rc@coolbeanspix.com</p>\n'
 html_buffer += '</div>\n'
 html_buffer += '<div class="w3-container w3-cell w3-center">\n'
 html_buffer += '<img src="https://github.com/mwinokan/RichardSites/blob/main/assets/Chantal_Nissen.jpg?raw=true" alt="Chantal_Nissen" style="width:100%;max-width:200px" class="w3-padding">\n'
 html_buffer += '<h4 style="color:black">Chantal Nissen</h4>\n'
+html_buffer += '<p>cn@coolbeanspix.com</p>\n'
 html_buffer += '</div>\n'
 html_buffer += '</div>\n'
 html_buffer += '</div>\n'
@@ -196,7 +216,7 @@ html_buffer += '</div>\n'
 # html_buffer += f'<div class="w3-content w3-topbar w3-center" style="max-width:{max_width}px">\n'
 html_buffer += '<br>\n'
 html_buffer += '<br>\n'
-html_buffer += f'<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:{max_width}px;background-color:blue">\n'
+html_buffer += f'<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:{max_width}px;background-color:{accent_color1}">\n'
 html_buffer += '<h2>Projects</h2>\n'
 html_buffer += '</div>\n'
 html_buffer += '<br>\n'
@@ -241,12 +261,12 @@ html_buffer += '</div>\n'
 html_buffer += '</body>\n'
 
 # footer
-html_buffer += '<footer class="w3-container" style="padding:32px;background-color:blue">\n'
+html_buffer += f'<footer class="w3-container" style="padding:32px;background-color:{accent_color1}">\n'
 html_buffer += '<div class="w3-center w3-text-white">\n'
-html_buffer += '<p style="color:lime"><strong>Cool Beans BV</strong></p>\n'
-html_buffer += '<p>Haarlemmerweg 315D<br>1051 LG, Amsterdam<br>Nederland</p>\n'
-html_buffer += '<p>+31 (0) 650281410</p>\n'
-html_buffer += '</ul><a href="#" class="w3-button w3-padding w3-margin-bottom" style="background-color:blue;color:red"><i class="fa fa-arrow-up w3-margin-right"></i>Back to top</a>\n'
+html_buffer += f'<p style="color:{accent_color2}"><strong>{title}</strong></p>\n'
+html_buffer += f'<p>{address}</p>\n'
+html_buffer += f'<p>{contact}</p>\n'
+html_buffer += f'</ul><a href="#" class="w3-button w3-padding w3-margin-bottom" style="background-color:{accent_color1};color:{accent_color3}"><i class="fa fa-arrow-up w3-margin-right"></i>Back to top</a>\n'
 html_buffer += '</div>\n'
 html_buffer += '</footer>\n'
 html_buffer += '</html>\n'

@@ -7,7 +7,9 @@ max_width = 4000 # px
 slideshow_auto = False
 slideshow_rate = 5 #s
 address = "Haarlemmerweg 315D<br>1051 LG, Amsterdam<br>Nederland"
-accent_color = "blue"
+accent_color1 = "tomato"
+accent_color2 = "SlateBlue"
+accent_color3 = "SlateBlue"
 contact = "+31 (0) 650281410"
 
 # urls
@@ -214,7 +216,7 @@ html_buffer += '</div>\n'
 # html_buffer += f'<div class="w3-content w3-topbar w3-center" style="max-width:{max_width}px">\n'
 html_buffer += '<br>\n'
 html_buffer += '<br>\n'
-html_buffer += f'<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:{max_width}px;background-color:{accent_color}">\n'
+html_buffer += f'<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:{max_width}px;background-color:{accent_color1}">\n'
 html_buffer += '<h2>Projects</h2>\n'
 html_buffer += '</div>\n'
 html_buffer += '<br>\n'
@@ -259,12 +261,12 @@ html_buffer += '</div>\n'
 html_buffer += '</body>\n'
 
 # footer
-html_buffer += f'<footer class="w3-container" style="padding:32px;background-color:{accent_color}">\n'
+html_buffer += f'<footer class="w3-container" style="padding:32px;background-color:{accent_color1}">\n'
 html_buffer += '<div class="w3-center w3-text-white">\n'
-html_buffer += f'<p style="color:lime"><strong>{title}</strong></p>\n'
+html_buffer += f'<p style="color:{accent_color2}"><strong>{title}</strong></p>\n'
 html_buffer += f'<p>{address}</p>\n'
 html_buffer += f'<p>{contact}</p>\n'
-html_buffer += f'</ul><a href="#" class="w3-button w3-padding w3-margin-bottom" style="background-color:{accent_color};color:red"><i class="fa fa-arrow-up w3-margin-right"></i>Back to top</a>\n'
+html_buffer += f'</ul><a href="#" class="w3-button w3-padding w3-margin-bottom" style="background-color:{accent_color1};color:{accent_color3}"><i class="fa fa-arrow-up w3-margin-right"></i>Back to top</a>\n'
 html_buffer += '</div>\n'
 html_buffer += '</footer>\n'
 html_buffer += '</html>\n'
