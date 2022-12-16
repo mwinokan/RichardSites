@@ -5,7 +5,6 @@ def main():
 	movies = make_movie_data()
 
 	cool_beans(movies)
-	
 	katuni(movies)
 
 	push_changes()
