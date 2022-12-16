@@ -232,9 +232,9 @@ def create_site(address,accent_color1,accent_color2,accent_color3,contact,logo_u
 			html_buffer += f'<div id="{d.name}" class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}</p>\n'
-			html_buffer += '<button class="w3-btn w3-black">Details</button>\n'
-			html_buffer += '<a href="#" class="w3-btn w3-red">YouTube</a>\n'
-			html_buffer += '<a href="#" class="w3-btn w3-amber">IMDb</a>\n'
+			html_buffer += f'<button class="w3-btn" style="background-color:{accent_color1}">Details</button>\n'
+			html_buffer += f'<a href="#" class="w3-btn" style="background-color:{accent_color2}">YouTube</a>\n'
+			html_buffer += f'<a href="#" class="w3-btn" style="background-color:{accent_color3}">IMDb</a>\n'
 			html_buffer += '</div>\n'
 			html_buffer += '</div>\n'
 
