@@ -43,7 +43,7 @@ def katuni(movies):
 	
 	accent_color1 = "tomato"
 	accent_color2 = "SlateBlue"
-	accent_color3 = "SlateBlue"
+	accent_color3 = "DarkRed"
 	
 	logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/katuni_logo.jpg?raw=true'
 
