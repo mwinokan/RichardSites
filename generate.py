@@ -239,7 +239,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			# info panel
 			html_buffer += f'<div class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
-			html_buffer += f'<div class="w3-container w3-display-container">\n'
+			html_buffer += f'<div class="w3-container w3-display-container" style="padding-left:0px;padding-right:0px">\n'
 			html_buffer += f'<p>{d.description}</p>\n'
 			html_buffer += f'<i id="show_{d.name}" class="fa fa-plus w3-display-bottomright" style="color:{accent_color1}" onclick="showDetail(\'{d.name}\')"></i>\n'
 			html_buffer += '</div>\n'
