@@ -25,7 +25,7 @@ def cool_beans(movies):
 	accent_color3 = "red"
 
 	accent_contrast1 = "red"
-	accent_contrast2 = "red"
+	accent_contrast2 = "blue"
 	accent_contrast3 = "lime"
 	
 	logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/cool_beans_logo.png?raw=true'
