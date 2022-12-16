@@ -230,7 +230,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 		html_buffer += '<div class="w3-row">\n'
 
 		for d in chunk:
-			html_buffer += f'<div class="w3-col l4 m12 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
+			html_buffer += f'<br><div class="w3-col l4 m12 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
 			
 			# movie poster
 			html_buffer += f'<a href="{d.target_url}"><img class="w3-card-4 w3-hover-opacity" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
