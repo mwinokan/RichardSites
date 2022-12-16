@@ -59,51 +59,27 @@ h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}body {font-family: "Open Sans"}
 <img src="https://github.com/mwinokan/RichardSites/blob/main/assets/vampire2000_screen.jpg?raw=true" style="width:100%">
 <div class="w3-padding w3-display-bottomleft w3-text-white"><h3>The Little Vampire</h3></div>
 </div>
-<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">
-<div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
-<div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
-</div>
 </div>
 <script>
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-var slideIndex = getRandomInt(8);
-showDivs(slideIndex);
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-function showDivs(n) {
+var myIndex = 0;
+carousel();
+function carousel() {
   var i;
   var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";  
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " w3-white";
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000);
 }
 </script>
 <div class="w3-content" style="max-width:800px">
 <div class="w3-container w3-padding-large">
 <h2>Who are we?</h2>
 <p>
-Cool Beans BV is run by producers Richard Claus and Chantal Nissen, the Amsterdam animation outfit Katuni and the German Comet Film are its sister companies.
-</p><p>
-All of Cool Beans productions are international co-productions, including <i>Black Butterflies</i>, <i>The Price of Sugar</i>, <i>An Act of Defiance</i> and the recent 3D animated films <i>The Little Vampire 3D</i> (2017) in co-production with A. Film (Denmark) and <i>Ainbo</i> (2020) in co-production with Tunche Films (Peru).
-</p><p>
-The next 3D animated film coming from Cool Beans and Katuni is <i>Panda Bear in Africa</i>, which is set to start animation end of 2021. Le Pacte (France) joined the successful Dutch/German/Danish team that produced <i>The Little Vampire 3D</i> as the French co-producer in 2019, and sales agent CMG – Cinema Management Group has already sold an astonishing number of territories. There is still room for co-producers, animation studios and other partners to come on board.
-</p><p>
-Cool Beans’ development slate also includes new live action films, among others the Dutch “multiculti” comedy <i>Matties</i> and the historic drama <i>Tutuba</i>; the series <i>Panama Panic</i> and the animated series <i>The Little Vampire</i>.
-</p>	
+Cool Beans BV is run by producers Richard Claus and Chantal Nissen, the Amsterdam animation outfit Katuni and the German Comet Film are its sister companies.</p><p>All of Cool Beans productions are international co-productions, including <i>Black Butterflies</i>, <i>The Price of Sugar</i>, <i>An Act of Defiance</i> and the recent 3D animated films <i>The Little Vampire 3D</i> (2017) in co-production with A. Film (Denmark) and <i>Ainbo</i> (2020) in co-production with Tunche Films (Peru).</p><p>The next 3D animated film coming from Cool Beans and Katuni is <i>Panda Bear in Africa</i>, which is set to start animation end of 2021. Le Pacte (France) joined the successful Dutch/German/Danish team that produced <i>The Little Vampire 3D</i> as the French co-producer in 2019, and sales agent CMG – Cinema Management Group has already sold an astonishing number of territories. There is still room for co-producers, animation studios and other partners to come on board.</p><p>Cool Beans’ development slate also includes new live action films, among others the Dutch “multiculti” comedy <i>Matties</i> and the historic drama <i>Tutuba</i>; the series <i>Panama Panic</i> and the animated series <i>The Little Vampire</i>.</p>	
 </div>
 </div>
 <div class="w3-content" style="max-width:600px">
@@ -122,7 +98,7 @@ Cool Beans’ development slate also includes new live action films, among other
 </div>
 <br>
 <br>
-<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:4000px;background-color:blue">
+<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:4000px;background-color:tomato">
 <h2>Projects</h2>
 </div>
 <br>
@@ -209,12 +185,12 @@ Cool Beans’ development slate also includes new live action films, among other
 </div>
 </div>
 </body>
-<footer class="w3-container" style="padding:32px;background-color:blue">
+<footer class="w3-container" style="padding:32px;background-color:tomato">
 <div class="w3-center w3-text-white">
-<p style="color:lime"><strong>Katuni Animation</strong></p>
+<p style="color:SlateBlue"><strong>Katuni Animation</strong></p>
 <p>Haarlemmerweg 315D<br>1051 LG, Amsterdam<br>Nederland</p>
 <p>+31 (0) 650281410</p>
-</ul><a href="#" class="w3-button w3-padding w3-margin-bottom" style="background-color:blue;color:red"><i class="fa fa-arrow-up w3-margin-right"></i>Back to top</a>
+</ul><a href="#" class="w3-button w3-padding w3-margin-bottom" style="background-color:tomato;color:SlateBlue"><i class="fa fa-arrow-up w3-margin-right"></i>Back to top</a>
 </div>
 </footer>
 </html>
