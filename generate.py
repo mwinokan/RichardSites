@@ -268,13 +268,18 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 	return html_buffer
 
 class Movie():
-	def __init__(self,name,title,year,target_url,description,more_data=None):
+	def __init__(self,name,title,year,imdb_url,description,trailer_url=None,more_data=None):
 		self.name = name
 		self.title = title
 		self.year = year
-		self.target_url = target_url
 		self.description = description
 		self.more_data = more_data
+		self.trailer_url = trailer_url
+		self.imdb_url = imdb_url
+
+	@property
+	def target_url(self):
+		return self.trailer_url or self.imdb_url
 
 	@property
 	def has_screencap(self):
@@ -295,7 +300,12 @@ class Movie():
 def make_movie_data():
 	# data
 	movies = []
-	movies.append(Movie('ainbo', 'AINBO - Spirit of the Amazon', 2021, 'https://www.youtube.com/watch?v=VtJmptdYyEk', 'Ainbo was born and grew up in the deepest jungle of the Amazon. One day she discovers that her homeland is being threatened by illegal and ruthless mining. Using the help of her spirit guides Vaca and Dillo she embarks on a journey to save her land and save her people before it’s too late.'))
+	movies.append(Movie('ainbo', 
+				'AINBO - Spirit of the Amazon', 
+				2021, 
+				'https://www.imdb.com/title/tt6570098/', 
+				'Ainbo was born and grew up in the deepest jungle of the Amazon. One day she discovers that her homeland is being threatened by illegal and ruthless mining. Using the help of her spirit guides Vaca and Dillo she embarks on a journey to save her land and save her people before it’s too late.',
+				'https://www.youtube.com/watch?v=VtJmptdYyEk'))
 	movies.append(Movie('panda', 'Panda Bear in Africa', 2023, 'https://www.imdb.com/title/tt13616980/', "A fun and adventurous young Panda travels from China to Africa to rescue his best friend, Jielong the Dragon, who has been kidnapped. On his journey he discovers a world completely unknown to him and faces frightening hippos, suspicious hyenas and wise gorillas. Relying on his wits (and some new found friends) he makes his way across Africa, before rescuing Jielong and saving his new friends' jungle home. A family entertainment comedy, a fish out of water/coming of age story."))
 	movies.append(Movie('bram', 'Bram Fischer', 2017, 'https://www.youtube.com/watch?v=uRNEaoX-SKQ', "In apartheid-ruled South Africa, a renowned lawyer struggles to hide his secret affiliation to the nation's chief resistance movement - as he takes on defending a group of its arrested members, including its leader, Nelson Mandela."))
 	movies.append(Movie('vampire', 'The Little Vampire 3D', 2017, 'https://www.youtube.com/watch?v=IUDGUmJir50', "Rudolph, a 13-year-old vampire, meets Tony, a mortal boy his age who loves old castles, graveyards and vampires. Tony helps Rudolph to fight against a notorious vampire hunter, and together they save Rudolph's family and become friends."))
