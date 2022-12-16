@@ -246,7 +246,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			# more info panel
 			if d.more_data:
 				html_buffer += f'<div id="{d.name}_detail" style="display:none">\n'
-				html_buffer += f'<p>{d.description}\n'
+				html_buffer += f'<p>{d.more_data}\n'
 				html_buffer += f'<i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
 				html_buffer += '</p>\n'
 				html_buffer += '</div>\n'
@@ -329,7 +329,20 @@ def make_movie_data():
 		2021, 
 		'https://www.imdb.com/title/tt6570098/', 
 		'Ainbo was born and grew up in the deepest jungle of the Amazon. One day she discovers that her homeland is being threatened by illegal and ruthless mining. Using the help of her spirit guides Vaca and Dillo she embarks on a journey to save her land and save her people before it’s too late.',
-		'https://www.youtube.com/watch?v=VtJmptdYyEk'))
+		'https://www.youtube.com/watch?v=VtJmptdYyEk',
+		more_data="""
+		<strong>Director</strong>: Richard Claus & Karsten Kiilerich. <br>
+		<strong>Screenwriters</strong>: Robert Sprackling, Richard Claus & Karsten Kiilerich. <br>
+		<strong>Cast</strong>: tbd. <br>
+		<strong>Co-production countries</strong>: NL/DK/DE/FR. <br>
+		<strong>Co-producers</strong>: A. Film (DK), Comet Film (DE), Le Pacte (FR). <br>
+		<strong>Status</strong>: In development/pre-production. <br>
+		<strong>Release</strong>: 2023. <br>
+		<strong>Sort</strong>: feature-length 3D animation. <br>
+		<strong>Duration</strong>: 88 min. <br>
+		<strong>Genre</strong>: Family Entertainment, Comedy. <br>
+		<strong>International Sales</strong>: CMG Cinema Management Group <br>
+		"""))
 	movies.append(Movie('panda',
 		'Panda Bear in Africa', 
 		2023, 
