@@ -251,7 +251,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 				html_buffer += '</p>\n'
 				html_buffer += '</div>\n'
 
-			html_buffer += f'<a href="{d.imdb_url}" class="fa fa-video-camera" style="color:{accent_color2}">IMDb</a>\n'
+			html_buffer += f'<a href="{d.imdb_url}" class="fa fa-video-camera" style="color:{accent_color2}"> IMDb</a>\n'
 			if d.trailer_url:
 				html_buffer += f'<a href="{d.trailer_url}" style="color:{accent_color3}">Trailer</a>\n'
 			html_buffer += '</div>\n'
