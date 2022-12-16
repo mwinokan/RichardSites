@@ -12,8 +12,10 @@ def main():
 from os.path import exists
 
 def cool_beans(movies):
-	
+
 	title = 'Cool Beans BV'
+
+	print(f'site({title})')
 
 	contact = "+31 (0) 650281410"
 	address = "Haarlemmerweg 315D<br>1051 LG, Amsterdam<br>Nederland"
@@ -33,6 +35,8 @@ def cool_beans(movies):
 def katuni(movies):
 	
 	title = 'Katuni Animation'
+
+	print(f'site({title})')
 
 	contact = "+31 (0) 650281410"
 	address = "Haarlemmerweg 315D<br>1051 LG, Amsterdam<br>Nederland"
