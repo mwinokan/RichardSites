@@ -50,7 +50,7 @@ def katuni(movies):
 
 	write_buffer(html_buffer,subdir='katuni')
 
-def create_site(address,accent_color1,accent_color2,accent_color3,contact,logo_url,title,text_buffer,movies,max_width=4000,slideshow_auto=True,slideshow_rate=5):
+def create_site(address,accent_color1,accent_color2,accent_color3,contact,logo_url,title,text_buffer,movies,max_width=4000,slideshow_auto=False,slideshow_rate=5):
 
 	# preamble
 	html_buffer = '<!DOCTYPE html>'

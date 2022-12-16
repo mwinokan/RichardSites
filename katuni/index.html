@@ -59,20 +59,37 @@ h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}body {font-family: "Open Sans"}
 <img src="https://github.com/mwinokan/RichardSites/blob/main/assets/vampire2000_screen.jpg?raw=true" style="width:100%">
 <div class="w3-padding w3-display-bottomleft w3-text-white"><h3>The Little Vampire</h3></div>
 </div>
+<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">
+<div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
+<div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
+</div>
 </div>
 <script>
-var myIndex = 0;
-carousel();
-function carousel() {
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+var slideIndex = getRandomInt(8);
+showDivs(slideIndex);
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";  
   }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 5000);
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
 }
 </script>
 <div class="w3-content" style="max-width:800px">
