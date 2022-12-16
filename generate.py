@@ -241,8 +241,9 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}</p>\n'
 			html_buffer += f'<button class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1}">Details</button>\n'
-			html_buffer += f'<a href="#" class="w3-btn" style="background-color:{accent_color2};color:{accent_contrast2}">YouTube</a>\n'
-			html_buffer += f'<a href="#" class="w3-btn" style="background-color:{accent_color3};color:{accent_contrast3}">IMDb</a>\n'
+			html_buffer += f'<a href="{d.imdb_url}" class="w3-btn" style="background-color:{accent_color2};color:{accent_contrast2}">IMDb</a>\n'
+			if d.trailer_url:
+				html_buffer += f'<a href="{d.trailer_url}" class="w3-btn" style="background-color:{accent_color3};color:{accent_contrast3}">Trailer</a>\n'
 			html_buffer += '</div>\n'
 			html_buffer += '</div>\n'
 
@@ -301,20 +302,64 @@ def make_movie_data():
 	# data
 	movies = []
 	movies.append(Movie('ainbo', 
-				'AINBO - Spirit of the Amazon', 
-				2021, 
-				'https://www.imdb.com/title/tt6570098/', 
-				'Ainbo was born and grew up in the deepest jungle of the Amazon. One day she discovers that her homeland is being threatened by illegal and ruthless mining. Using the help of her spirit guides Vaca and Dillo she embarks on a journey to save her land and save her people before it’s too late.',
-				'https://www.youtube.com/watch?v=VtJmptdYyEk'))
-	movies.append(Movie('panda', 'Panda Bear in Africa', 2023, 'https://www.imdb.com/title/tt13616980/', "A fun and adventurous young Panda travels from China to Africa to rescue his best friend, Jielong the Dragon, who has been kidnapped. On his journey he discovers a world completely unknown to him and faces frightening hippos, suspicious hyenas and wise gorillas. Relying on his wits (and some new found friends) he makes his way across Africa, before rescuing Jielong and saving his new friends' jungle home. A family entertainment comedy, a fish out of water/coming of age story."))
-	movies.append(Movie('bram', 'Bram Fischer', 2017, 'https://www.youtube.com/watch?v=uRNEaoX-SKQ', "In apartheid-ruled South Africa, a renowned lawyer struggles to hide his secret affiliation to the nation's chief resistance movement - as he takes on defending a group of its arrested members, including its leader, Nelson Mandela."))
-	movies.append(Movie('vampire', 'The Little Vampire 3D', 2017, 'https://www.youtube.com/watch?v=IUDGUmJir50', "Rudolph, a 13-year-old vampire, meets Tony, a mortal boy his age who loves old castles, graveyards and vampires. Tony helps Rudolph to fight against a notorious vampire hunter, and together they save Rudolph's family and become friends."))
-	movies.append(Movie('sugar', 'Price of Sugar', 2013, 'https://www.youtube.com/watch?v=js-lnZG74QA', "The Price Of Sugar tells the alternately gripping, romantic and heart-wrenching story of Sarith and Mini-Mini as they grow up on the sugar plantations of Suriname in the latter half of the eighteenth century. Where Sarith is the most beautiful woman in the colony, the mulatto Mini-Mini is forever in her shadow, slave to her own half-sister."))
-	movies.append(Movie('butterflies', 'Black Butterflies', 2011, 'https://www.youtube.com/watch?v=Fr-Op9-HZhA', "In Apartheid-torn South Africa, poet Ingrid Jonker (Carice van Houten) struggles tragically in search of love and a sense of home."))
-	movies.append(Movie('thief', 'The Thief Lord', 2006, 'https://youtu.be/KFQvMHUU3ko', "After their mother dies, two boys flee their mean aunt and head for Venice, Italy, where they meet Scipio, the mysterious \"Thief Lord.\" Along with a small gang of abandoned kids, the boys start robbing the rich to support themselves."))
-	movies.append(Movie('heineken', 'De Heineken Ontvoering', 2015, 'https://youtu.be/LttABogMVPw', "The inside story of the planning, execution, rousing aftermath, and ultimate downfall of the kidnappers of beer tycoon Alfred \"Freddy\" Heineken in 1983, which resulted in the largest ransom ever paid for an individual."))
-	movies.append(Movie('vampire2000', 'The Little Vampire', 2000, 'https://youtu.be/HRHWVeVFVf8', "A lonely American boy living in Scotland makes a new best friend, a fellow nine year-old who happens to be a vampire."))
-	movies.append(Movie('witness', 'Mute Witness', 1995, 'https://youtu.be/Ss5Hw3uiArs', "A mute make-up artist working on a slasher movie being shot in Moscow, is locked in the studio after hours. While there, she witnesses a brutal murder, and must escape capture."))
+		'AINBO - Spirit of the Amazon', 
+		2021, 
+		'https://www.imdb.com/title/tt6570098/', 
+		'Ainbo was born and grew up in the deepest jungle of the Amazon. One day she discovers that her homeland is being threatened by illegal and ruthless mining. Using the help of her spirit guides Vaca and Dillo she embarks on a journey to save her land and save her people before it’s too late.',
+		'https://www.youtube.com/watch?v=VtJmptdYyEk'))
+	movies.append(Movie('panda',
+		'Panda Bear in Africa', 
+		2023, 
+		'https://www.imdb.com/title/tt13616980/', 
+		"A fun and adventurous young Panda travels from China to Africa to rescue his best friend, Jielong the Dragon, who has been kidnapped. On his journey he discovers a world completely unknown to him and faces frightening hippos, suspicious hyenas and wise gorillas. Relying on his wits (and some new found friends) he makes his way across Africa, before rescuing Jielong and saving his new friends' jungle home. A family entertainment comedy, a fish out of water/coming of age story."))
+	movies.append(Movie('bram', 
+		'Bram Fischer', 
+		2017, 
+		"https://www.imdb.com/title/tt6002522",
+		"In apartheid-ruled South Africa, a renowned lawyer struggles to hide his secret affiliation to the nation's chief resistance movement - as he takes on defending a group of its arrested members, including its leader, Nelson Mandela.",
+		'https://www.youtube.com/watch?v=uRNEaoX-SKQ'))
+	movies.append(Movie('vampire', 
+		'The Little Vampire 3D', 
+		2017, 
+		"https://www.imdb.com/title/tt4729560",
+		"Rudolph, a 13-year-old vampire, meets Tony, a mortal boy his age who loves old castles, graveyards and vampires. Tony helps Rudolph to fight against a notorious vampire hunter, and together they save Rudolph's family and become friends.",
+		'https://www.youtube.com/watch?v=IUDGUmJir50'))
+	movies.append(Movie('sugar', 
+		'Price of Sugar', 
+		2013, 
+		'https://www.imdb.com/title/tt2691498', 
+		"The Price Of Sugar tells the alternately gripping, romantic and heart-wrenching story of Sarith and Mini-Mini as they grow up on the sugar plantations of Suriname in the latter half of the eighteenth century. Where Sarith is the most beautiful woman in the colony, the mulatto Mini-Mini is forever in her shadow, slave to her own half-sister.",
+		'https://www.youtube.com/watch?v=js-lnZG74QA'))
+	movies.append(Movie('butterflies', 
+		'Black Butterflies', 
+		2011, 
+		'https://www.imdb.com/title/tt0906778', 
+		"In Apartheid-torn South Africa, poet Ingrid Jonker (Carice van Houten) struggles tragically in search of love and a sense of home.",
+		'https://www.youtube.com/watch?v=Fr-Op9-HZhA'))
+	movies.append(Movie('thief', 
+		'The Thief Lord', 
+		2006, 
+		'https://www.imdb.com/title/tt0430674', 
+		"After their mother dies, two boys flee their mean aunt and head for Venice, Italy, where they meet Scipio, the mysterious \"Thief Lord.\" Along with a small gang of abandoned kids, the boys start robbing the rich to support themselves.",
+		'https://youtu.be/KFQvMHUU3ko'))
+	movies.append(Movie('heineken', 
+		'De Heineken Ontvoering', 
+		2015, 
+		'https://www.imdb.com/title/tt2917388', 
+		"The inside story of the planning, execution, rousing aftermath, and ultimate downfall of the kidnappers of beer tycoon Alfred \"Freddy\" Heineken in 1983, which resulted in the largest ransom ever paid for an individual.",
+		'https://youtu.be/LttABogMVPw'))
+	movies.append(Movie('vampire2000', 
+		'The Little Vampire', 
+		2000, 
+		'https://www.imdb.com/title/tt0192255', 
+		"A lonely American boy living in Scotland makes a new best friend, a fellow nine year-old who happens to be a vampire."
+		'https://youtu.be/HRHWVeVFVf8'))
+	movies.append(Movie('witness', 
+		'Mute Witness', 
+		1995, 
+		'https://www.imdb.com/title/tt0110604', 
+		"A mute make-up artist working on a slasher movie being shot in Moscow, is locked in the studio after hours. While there, she witnesses a brutal murder, and must escape capture.",
+		'https://youtu.be/Ss5Hw3uiArs'))
 	movies = sorted(movies,key=lambda x: x.year, reverse=True)
 	print(f'#movies = {len(movies)}')
 	return movies
