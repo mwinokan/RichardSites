@@ -232,8 +232,11 @@ def create_site(address,accent_color1,accent_color2,accent_color3,contact,logo_u
 			html_buffer += f'<div id="{d.name}" class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}</p>\n'
+			html_buffer += '<button class="w3-btn w3-black">Button Button</button>\n'
+			html_buffer += '<a href="#" class="w3-btn w3-black">Link Button</a>\n'
 			html_buffer += '</div>\n'
 			html_buffer += '</div>\n'
+
 
 		html_buffer += '</div>\n'
 
@@ -257,13 +260,14 @@ def create_site(address,accent_color1,accent_color2,accent_color3,contact,logo_u
 	return html_buffer
 
 class Movie():
-	def __init__(self,name,title,year,target_url,description):
+	def __init__(self,name,title,year,target_url,description,more_data=None):
 		self.name = name
 		self.title = title
 		self.year = year
 		self.target_url = target_url
 		self.description = description
-	
+		self.more_data = more_data
+
 	@property
 	def has_screencap(self):
 		return exists(f'assets/{self.name}_screen.jpg')
