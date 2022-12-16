@@ -240,7 +240,8 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<div id="{d.name}" class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}</p>\n'
-			html_buffer += f'<button class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1}">Details</button>\n'
+			html_buffer += f'<button id="show_{d.name}" class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1}">More</button>\n'
+			html_buffer += f'<button id="hide_{d.name}" class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1}">Less</button>\n'
 			html_buffer += f'<a href="{d.imdb_url}" class="w3-btn" style="background-color:{accent_color2};color:{accent_contrast2}">IMDb</a>\n'
 			if d.trailer_url:
 				html_buffer += f'<a href="{d.trailer_url}" class="w3-btn" style="background-color:{accent_color3};color:{accent_contrast3}">Trailer</a>\n'
