@@ -333,6 +333,23 @@ def make_movie_data():
 		'Ainbo was born and grew up in the deepest jungle of the Amazon. One day she discovers that her homeland is being threatened by illegal and ruthless mining. Using the help of her spirit guides Vaca and Dillo she embarks on a journey to save her land and save her people before it’s too late.',
 		'https://www.youtube.com/watch?v=VtJmptdYyEk',
 		more_data="""
+		<strong>Directors</strong>: José Zelada, Richard Claus. <br>
+		<strong>Screenwriters</strong>: Brian Cleveland, Jason Cleveland, Richard Claus, Larry Wilson. <br>
+		<strong>Cast</strong>: tba. <br>
+		<strong>Country</strong>: NL/US/PE. <br>
+		<strong>Co-producers</strong>: Tunche Films (PE), CMG (US), Epic (PE). <br>
+		<strong>Status</strong>: production. <br>
+		<strong>Sort</strong>: feature-length animation. <br>
+		<strong>Duration</strong>: 84 min. Genre</strong>: adventure, children. <br>
+		<strong>Distribution/Sales</strong>: Cinema Management Group.<br>
+		"""))
+
+	movies.append(Movie('panda',
+		'Panda Bear in Africa', 
+		2023, 
+		'https://www.imdb.com/title/tt13616980/', 
+		"A fun and adventurous young Panda travels from China to Africa to rescue his best friend, Jielong the Dragon, who has been kidnapped. On his journey he discovers a world completely unknown to him and faces frightening hippos, suspicious hyenas and wise gorillas. Relying on his wits (and some new found friends) he makes his way across Africa, before rescuing Jielong and saving his new friends' jungle home. A family entertainment comedy, a fish out of water/coming of age story.",
+		more_data="""
 		<strong>Director</strong>: Richard Claus & Karsten Kiilerich. <br>
 		<strong>Screenwriters</strong>: Robert Sprackling, Richard Claus & Karsten Kiilerich. <br>
 		<strong>Cast</strong>: tbd. <br>
@@ -345,11 +362,6 @@ def make_movie_data():
 		<strong>Genre</strong>: Family Entertainment, Comedy. <br>
 		<strong>International Sales</strong>: CMG Cinema Management Group <br>
 		"""))
-	movies.append(Movie('panda',
-		'Panda Bear in Africa', 
-		2023, 
-		'https://www.imdb.com/title/tt13616980/', 
-		"A fun and adventurous young Panda travels from China to Africa to rescue his best friend, Jielong the Dragon, who has been kidnapped. On his journey he discovers a world completely unknown to him and faces frightening hippos, suspicious hyenas and wise gorillas. Relying on his wits (and some new found friends) he makes his way across Africa, before rescuing Jielong and saving his new friends' jungle home. A family entertainment comedy, a fish out of water/coming of age story."))
 	movies.append(Movie('bram', 
 		'Bram Fischer', 
 		2017, 
