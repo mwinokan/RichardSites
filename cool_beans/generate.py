@@ -177,8 +177,9 @@ html_buffer += '</div>\n'
 html_buffer += '</div>\n'
 
 # next section heading
-html_buffer += f'<div class="w3-content w3-topbar w3-center" style="max-width:{max_width}px">\n'
-# html_buffer += '<h2>Current Projects</h2>\n'
+# html_buffer += f'<div class="w3-content w3-topbar w3-center" style="max-width:{max_width}px">\n'
+html_buffer += f'<div class="w3-content w3-center w3-text-white w3-padding-large" style="max-width:{max_width}px;background-color:blue">\n'
+html_buffer += '<h2>Projects</h2>\n'
 html_buffer += '</div>\n'
 
 # poster grid
@@ -189,17 +190,29 @@ subset = [d for d in movies if d.has_poster]
 print(f'#movies w/ poster_url = {len(subset)}')
 assert len(subset) > 0
 
-for d in subset:
-	html_buffer += f'<div class="w3-display-container w3-third w3-mobile w3-padding-large" onclick="openCity(\'{d.name}\')" style="padding-left:0px;padding-right:0px">\n'
-	
-	# movie poster
-	html_buffer += f'<a href="{d.target_url}"><img class="w3-card-4 w3-hover-opacity" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
+start = 0
+end = len(subset)
+step = 3
+for i in range(start, end, step):
+	x = i
+	chunk = subset[x:x+step]
 
-	# info panel
-	html_buffer += f'<div id="{d.name}" class="w3-container w3-display-container">\n'
-	html_buffer += f'<h2>{d.title}</h2>\n'
-	html_buffer += f'<p>{d.description}</p>\n'
-	html_buffer += '</div>\n'
+	html_buffer += '<div class="w3-row">\n'
+
+	for d in chunk:
+		# html_buffer += f'<div class="w3-display-container w3-third w3-mobile w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
+		html_buffer += f'<div class="w3-col l4 m4 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
+		
+		# movie poster
+		html_buffer += f'<a href="{d.target_url}"><img class="w3-card-4 w3-hover-opacity" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
+
+		# info panel
+		html_buffer += f'<div id="{d.name}" class="w3-container">\n'
+		html_buffer += f'<h2>{d.title}</h2>\n'
+		html_buffer += f'<p>{d.description}</p>\n'
+		html_buffer += '</div>\n'
+		html_buffer += '</div>\n'
+
 	html_buffer += '</div>\n'
 
 html_buffer += '</div>\n'
