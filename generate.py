@@ -240,8 +240,11 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<div id="{d.name}" class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}</p>\n'
+			html_buffer += f'<div id="{d.name}_detail" style="display:none">\n'
+			html_buffer += f'<p>{d.description}</p>\n'
+			html_buffer += '</div>\n'
 			html_buffer += f'<button id="show_{d.name}" class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1}">More</button>\n'
-			html_buffer += f'<button id="hide_{d.name}" class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1}">Less</button>\n'
+			html_buffer += f'<button id="hide_{d.name}" class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1};display:none">Less</button>\n'
 			html_buffer += f'<a href="{d.imdb_url}" class="w3-btn" style="background-color:{accent_color2};color:{accent_contrast2}">IMDb</a>\n'
 			if d.trailer_url:
 				html_buffer += f'<a href="{d.trailer_url}" class="w3-btn" style="background-color:{accent_color3};color:{accent_contrast3}">Trailer</a>\n'
@@ -252,6 +255,21 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 
 	html_buffer += '</div>\n'
 	html_buffer += '</div>\n'
+
+	html_buffer += '<script>\n'
+	html_buffer += """
+					function showDetail(ID) {
+						document.getElementById(ID+"_detail").style.display = "block";
+						document.getElementById("show_"+ID).style.display = "none";
+						document.getElementById("hide_"+ID).style.display = "block";
+					}
+					function hideDetail(ID) {
+						document.getElementById(ID+"_detail").style.display = "none";
+						document.getElementById("show_"+ID).style.display = "block";
+						document.getElementById("hide_"+ID).style.display = "none";
+					}
+					"""
+	html_buffer += '</script>\n'
 
 	# end body
 	html_buffer += '</body>\n'
