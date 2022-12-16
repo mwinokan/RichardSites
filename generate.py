@@ -23,12 +23,16 @@ def cool_beans(movies):
 	accent_color1 = "blue"
 	accent_color2 = "lime"
 	accent_color3 = "red"
+
+	accent_contrast1 = "red"
+	accent_contrast2 = "red"
+	accent_contrast3 = "lime"
 	
 	logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/cool_beans_logo.png?raw=true'
 
 	text_buffer = 'Cool Beans BV is run by producers Richard Claus and Chantal Nissen, the Amsterdam animation outfit Katuni and the German Comet Film are its sister companies.</p><p>All of Cool Beans productions are international co-productions, including <i>Black Butterflies</i>, <i>The Price of Sugar</i>, <i>An Act of Defiance</i> and the recent 3D animated films <i>The Little Vampire 3D</i> (2017) in co-production with A. Film (Denmark) and <i>Ainbo</i> (2020) in co-production with Tunche Films (Peru).</p><p>The next 3D animated film coming from Cool Beans and Katuni is <i>Panda Bear in Africa</i>, which is set to start animation end of 2021. Le Pacte (France) joined the successful Dutch/German/Danish team that produced <i>The Little Vampire 3D</i> as the French co-producer in 2019, and sales agent CMG – Cinema Management Group has already sold an astonishing number of territories. There is still room for co-producers, animation studios and other partners to come on board.</p><p>Cool Beans’ development slate also includes new live action films, among others the Dutch “multiculti” comedy <i>Matties</i> and the historic drama <i>Tutuba</i>; the series <i>Panama Panic</i> and the animated series <i>The Little Vampire</i>.'
 
-	html_buffer = create_site(address, accent_color1, accent_color2, accent_color3, contact, logo_url, title, text_buffer,movies)
+	html_buffer = create_site(address, accent_color1, accent_color2, accent_color3, accent_contrast1, accent_contrast2, accent_contrast3, contact, logo_url, title, text_buffer,movies)
 
 	write_buffer(html_buffer,subdir='cool_beans')
 
@@ -44,16 +48,20 @@ def katuni(movies):
 	accent_color1 = "tomato"
 	accent_color2 = "SlateBlue"
 	accent_color3 = "DarkRed"
+
+	accent_contrast1 = "black"
+	accent_contrast2 = "white"
+	accent_contrast3 = "white"
 	
 	logo_url = 'https://github.com/mwinokan/RichardSites/blob/main/assets/katuni_logo.jpg?raw=true'
 
 	text_buffer = 'Cool Beans BV is run by producers Richard Claus and Chantal Nissen, the Amsterdam animation outfit Katuni and the German Comet Film are its sister companies.</p><p>All of Cool Beans productions are international co-productions, including <i>Black Butterflies</i>, <i>The Price of Sugar</i>, <i>An Act of Defiance</i> and the recent 3D animated films <i>The Little Vampire 3D</i> (2017) in co-production with A. Film (Denmark) and <i>Ainbo</i> (2020) in co-production with Tunche Films (Peru).</p><p>The next 3D animated film coming from Cool Beans and Katuni is <i>Panda Bear in Africa</i>, which is set to start animation end of 2021. Le Pacte (France) joined the successful Dutch/German/Danish team that produced <i>The Little Vampire 3D</i> as the French co-producer in 2019, and sales agent CMG – Cinema Management Group has already sold an astonishing number of territories. There is still room for co-producers, animation studios and other partners to come on board.</p><p>Cool Beans’ development slate also includes new live action films, among others the Dutch “multiculti” comedy <i>Matties</i> and the historic drama <i>Tutuba</i>; the series <i>Panama Panic</i> and the animated series <i>The Little Vampire</i>.'
 
-	html_buffer = create_site(address, accent_color1, accent_color2, accent_color3, contact, logo_url, title, text_buffer,movies)
+	html_buffer = create_site(address, accent_color1, accent_color2, accent_color3, accent_contrast1, accent_contrast2, accent_contrast3, contact, logo_url, title, text_buffer,movies)
 
 	write_buffer(html_buffer,subdir='katuni')
 
-def create_site(address,accent_color1,accent_color2,accent_color3,contact,logo_url,title,text_buffer,movies,max_width=4000,slideshow_auto=False,slideshow_rate=5):
+def create_site(address,accent_color1,accent_color2,accent_color3,accent_contrast1,accent_contrast2,accent_contrast3,contact,logo_url,title,text_buffer,movies,max_width=4000,slideshow_auto=False,slideshow_rate=5):
 
 	# preamble
 	html_buffer = '<!DOCTYPE html>'
