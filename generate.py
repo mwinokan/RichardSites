@@ -230,7 +230,6 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 		html_buffer += '<div class="w3-row">\n'
 
 		for d in chunk:
-			# html_buffer += f'<div class="w3-display-container w3-third w3-mobile w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
 			html_buffer += f'<div class="w3-col l4 m12 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
 			
 			# movie poster
@@ -239,18 +238,19 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			# info panel
 			html_buffer += f'<div class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
-			# html_buffer += f'<div class="w3-container w3-display-container" style="padding-left:0px;padding-right:0px">\n'
 			html_buffer += f'<p>{d.description}\n'
-			html_buffer += f'<i id="show_{d.name}" class="fa fa-plus" style="color:{accent_color1}" onclick="showDetail(\'{d.name}\')"></i>\n'
+			if d.more_data:
+				html_buffer += f'<i id="show_{d.name}" class="fa fa-plus" style="color:{accent_color1}" onclick="showDetail(\'{d.name}\')"></i>\n'
 			html_buffer += '</p>\n'
-			# html_buffer += '</div>\n'
 
-			html_buffer += f'<div id="{d.name}_detail" style="display:none">\n'
-			html_buffer += f'<p>{d.description}\n'
-			html_buffer += f'<i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
-			html_buffer += '</p>\n'
-			html_buffer += '</div>\n'
-			# html_buffer += f'<button id="hide_{d.name}" class="w3-btn" style="background-color:{accent_color1};color:{accent_contrast1};display:none" onclick="hideDetail(\'{d.name}\')">Less</button>\n'
+			# more info panel
+			if d.more_data:
+				html_buffer += f'<div id="{d.name}_detail" style="display:none">\n'
+				html_buffer += f'<p>{d.description}\n'
+				html_buffer += f'<i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
+				html_buffer += '</p>\n'
+				html_buffer += '</div>\n'
+
 			html_buffer += f'<a href="{d.imdb_url}" class="w3-btn" style="background-color:{accent_color2};color:{accent_contrast2}">IMDb</a>\n'
 			if d.trailer_url:
 				html_buffer += f'<a href="{d.trailer_url}" class="w3-btn" style="background-color:{accent_color3};color:{accent_contrast3}">Trailer</a>\n'
