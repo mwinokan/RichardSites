@@ -239,16 +239,16 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<div class="w3-container">\n'
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}\n'
+			html_buffer += '</p>\n'
 			if d.more_data:
 				html_buffer += f'<i id="show_{d.name}" class="fa fa-plus" style="color:{accent_color1}" onclick="showDetail(\'{d.name}\')"></i>\n'
-			html_buffer += '</p>\n'
 
 			# more info panel
 			if d.more_data:
 				html_buffer += f'<div id="{d.name}_detail" style="display:none">\n'
 				html_buffer += f'<p>{d.more_data}\n'
-				html_buffer += f'<i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
 				html_buffer += '</p>\n'
+				html_buffer += f'<i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
 				html_buffer += '</div>\n'
 
 			html_buffer += f'<a href="{d.imdb_url}" class="w3-btn" style="background-color:{accent_color2};color:{accent_contrast2}">IMDb</a>\n'
