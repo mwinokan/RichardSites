@@ -240,14 +240,14 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<h2>{d.title}</h2>\n'
 			html_buffer += f'<p>{d.description}\n'
 			if d.more_data:
-				html_buffer += f'<br><i id="show_{d.name}" class="fa fa-plus" style="color:{accent_color1}" onclick="showDetail(\'{d.name}\')"></i>\n'
+				html_buffer += f'<i id="show_{d.name}" class="fa fa-plus" style="color:{accent_color1}" onclick="showDetail(\'{d.name}\')"></i>\n'
 			html_buffer += '</p>\n'
 
 			# more info panel
 			if d.more_data:
 				html_buffer += f'<div id="{d.name}_detail" style="display:none">\n'
 				html_buffer += f'<p>{d.more_data}\n'
-				html_buffer += f'<br><i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
+				html_buffer += f'<i class="fa fa-close" style="color:{accent_color1}" onclick="hideDetail(\'{d.name}\')"></i>\n'
 				html_buffer += '</p>\n'
 				html_buffer += '</div>\n'
 
@@ -270,7 +270,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 					}
 					function hideDetail(ID) {
 						document.getElementById(ID+"_detail").style.display = "none";
-						document.getElementById("show_"+ID).style.display = "block";
+						document.getElementById("show_"+ID).style.display = "inline";
 					}
 					"""
 	html_buffer += '</script>\n'
