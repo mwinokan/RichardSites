@@ -331,7 +331,10 @@ class Movie():
 	def embed_url(self):
 		if self.trailer_url:
 			# https://www.youtube.com/watch?v=VtJmptdYyEk
-			return f'https://www.youtube-nocookie.com/embed/{self.trailer_url.split("?v=")[-1]}'
+			if "?v=" in self.trailer_url:
+				return f'https://www.youtube-nocookie.com/embed/{self.trailer_url.split("?v=")[-1]}'
+			else:
+				return f'https://www.youtube-nocookie.com/embed/{self.trailer_url.replace("","")}'
 
 	@property
 	def has_screencap(self):
