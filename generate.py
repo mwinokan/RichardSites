@@ -280,7 +280,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 				html_buffer += f'<p>{d.description}</p>\n'
 				html_buffer += f'<p>{d.more_data}</p>\n'
 				html_buffer += f'<a href="{d.imdb_url}" class="w3-btn w3-hover-opacity w3-text-white" style="background-color:{accent_color1};"><strong>IMDb</strong></a>\n'
-
+				html_buffer += '<br>\n'
 				html_buffer += '</div>\n'
 				html_buffer += '</div>\n'
 				html_buffer += '</div>\n'
