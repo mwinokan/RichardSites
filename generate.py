@@ -267,6 +267,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 				html_buffer += f'<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
 				html_buffer += '<p>Some text in the Modal..</p>\n'
 
+				print(d.name)
 				print(d.trailer_url)
 				print(d.embed_url)
 				html_buffer += f'<iframe width="560" height="315" src="{d.embed_url}" '
