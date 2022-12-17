@@ -260,15 +260,21 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += '</div>\n'
 			html_buffer += '</div>\n'
 
-			html_buffer += f'<div id="{d.name}_trailer" class="w3-modal">\n'
-			html_buffer += '<div class="w3-modal-content">\n'
-			html_buffer += '<div class="w3-container">\n'
-			html_buffer += f'<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
-			html_buffer += '<p>Some text in the Modal..</p>\n'
-			html_buffer += '<p>Some text in the Modal..</p>\n'
-			html_buffer += '</div>\n'
-			html_buffer += '</div>\n'
-			html_buffer += '</div>\n'
+			if d.trailer_url:
+				html_buffer += f'<div id="{d.name}_trailer" class="w3-modal">\n'
+				html_buffer += '<div class="w3-modal-content">\n'
+				html_buffer += '<div class="w3-container">\n'
+				html_buffer += f'<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
+				html_buffer += '<p>Some text in the Modal..</p>\n'
+
+				html_buffer += f'<iframe width="560" height="315" src="{d.embed_url}" '
+				html_buffer += 'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; '
+				html_buffer += 'encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n'
+
+				html_buffer += '<p>Some text in the Modal..</p>\n'
+				html_buffer += '</div>\n'
+				html_buffer += '</div>\n'
+				html_buffer += '</div>\n'
 
 		html_buffer += '</div>\n'
 
@@ -317,6 +323,12 @@ class Movie():
 	@property
 	def target_url(self):
 		return self.trailer_url or self.imdb_url
+
+	@property
+	def embed_url(self):
+		if self.trailer_url:
+			# https://www.youtube.com/watch?v=VtJmptdYyEk
+			return f'https://www.youtube-nocookie.com/embed/{self.trailer_url.split("?v=")[-1]}'
 
 	@property
 	def has_screencap(self):
