@@ -263,7 +263,7 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<div id="{d.name}_trailer" class="w3-modal">\n'
 			html_buffer += '<div class="w3-modal-content">\n'
 			html_buffer += '<div class="w3-container">\n'
-			html_buffer += '<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
+			html_buffer += f'<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
 			html_buffer += '<p>Some text in the Modal..</p>\n'
 			html_buffer += '<p>Some text in the Modal..</p>\n'
 			html_buffer += '</div>\n'
