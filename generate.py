@@ -265,15 +265,21 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 				html_buffer += '<div class="w3-modal-content">\n'
 				html_buffer += '<div class="w3-container">\n'
 				html_buffer += f'<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
-				html_buffer += '<p>Some text in the Modal..</p>\n'
 
 				print(d.name)
 				print(d.trailer_url)
 				print(d.embed_url)
+
+				html_buffer += f'<h2>{d.title}</h2>\n'
+
 				html_buffer += f'<iframe width="100%" height="500" src="{d.embed_url}" '
 				# html_buffer += f'<iframe width="560" height="315" src="{d.embed_url}" '
 				html_buffer += 'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; '
 				html_buffer += 'encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n'
+
+				html_buffer += f'<p>{d.description}</p>\n'
+				html_buffer += f'<p>{d.more_data}</p>\n'
+				html_buffer += f'<a href="{d.imdb_url}" class="w3-btn w3-hover-opacity w3-text-white" style="background-color:{accent_color1};"><strong>IMDb</strong></a>\n'
 
 				html_buffer += '<p>Some text in the Modal..</p>\n'
 				html_buffer += '</div>\n'
