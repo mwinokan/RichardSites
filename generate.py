@@ -233,7 +233,10 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 			html_buffer += f'<div class="w3-col l4 m12 s12 w3-padding-large" style="padding-left:0px;padding-right:0px">\n'
 			
 			# movie poster
-			html_buffer += f'<a href="{d.target_url}"><img class="w3-card-4 w3-hover-opacity" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
+			if d.trailer_url:
+				html_buffer += f'<img class="w3-card-4 w3-hover-opacity" onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'block\'" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
+			else:
+				html_buffer += f'<a href="{d.target_url}"><img class="w3-card-4 w3-hover-opacity" src="{d.poster_url}" alt="{d.title} Poster" style="width:100%"></a>\n'
 
 			# info panel
 			html_buffer += f'<div class="w3-container">\n'
