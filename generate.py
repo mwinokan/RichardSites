@@ -267,6 +267,8 @@ def create_site(address,accent_color1,accent_color2,accent_color3,accent_contras
 				html_buffer += f'<span onclick="document.getElementById(\'{d.name}_trailer\').style.display=\'none\'"class="w3-button w3-display-topright">&times;</span>\n'
 				html_buffer += '<p>Some text in the Modal..</p>\n'
 
+				print(d.trailer_url)
+				print(d.embed_url)
 				html_buffer += f'<iframe width="560" height="315" src="{d.embed_url}" '
 				html_buffer += 'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; '
 				html_buffer += 'encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n'
